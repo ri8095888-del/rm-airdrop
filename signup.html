@@ -2,218 +2,339 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>RM Airdrop — Sign Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - RM Airdrop</title>
 
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-
-    body{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-      font-family:Arial,sans-serif;
-      background:#07080d;
-      color:#fff;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .box{
-      width:100%;
-      max-width:420px;
-      padding:30px;
-      background:#0e1018;
-      border:1px solid #252938;
-      border-radius:20px;
-      box-shadow:0 20px 60px #0008;
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #07080d;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
 
-    .logo{
-      width:52px;
-      height:52px;
-      display:grid;
-      place-items:center;
-      margin:0 auto 18px;
-      border-radius:15px;
-      background:linear-gradient(135deg,#7c5cff,#a984ff);
-      font-weight:800;
+    .box {
+      width: 100%;
+      max-width: 430px;
+      background: #0e1018;
+      border: 1px solid #252938;
+      border-radius: 20px;
+      padding: 32px 25px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.4);
     }
 
-    h1{text-align:center;font-size:27px}
-    .sub{text-align:center;color:#8e95a7;margin:8px 0 25px;font-size:14px}
-
-    label{
-      display:block;
-      margin:15px 0 7px;
-      font-size:13px;
-      color:#b7bdcb;
+    .logo {
+      width: 55px;
+      height: 55px;
+      margin: 0 auto 18px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 18px;
+      background: linear-gradient(135deg,#7c5cff,#a986ff);
+      box-shadow: 0 10px 35px rgba(124,92,255,.3);
     }
 
-    input{
-      width:100%;
-      padding:14px;
-      border-radius:11px;
-      border:1px solid #292d3b;
-      background:#141722;
-      color:#fff;
-      outline:none;
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 8px;
     }
 
-    input:focus{border-color:#7c5cff}
-
-    button{
-      width:100%;
-      margin-top:22px;
-      padding:14px;
-      border:0;
-      border-radius:11px;
-      background:#7c5cff;
-      color:white;
-      font-weight:700;
-      cursor:pointer;
+    .subtitle {
+      text-align: center;
+      color: #8e95a7;
+      font-size: 14px;
+      margin-bottom: 28px;
     }
 
-    button:disabled{opacity:.6}
-
-    #message{
-      margin-top:15px;
-      text-align:center;
-      font-size:13px;
-      color:#aeb4c3;
+    label {
+      display: block;
+      color: #c5c9d5;
+      font-size: 13px;
+      margin-bottom: 7px;
     }
 
-    .login{
-      text-align:center;
-      margin-top:20px;
-      font-size:13px;
-      color:#8e95a7;
+    input {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 17px;
+      border: 1px solid #292d3a;
+      border-radius: 11px;
+      outline: none;
+      background: #121520;
+      color: white;
+      font-size: 14px;
     }
 
-    .login a{color:#a18aff}
+    input:focus {
+      border-color: #7c5cff;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: 0;
+      border-radius: 11px;
+      background: #7c5cff;
+      color: white;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+    }
+
+    .message {
+      display: none;
+      margin-top: 16px;
+      padding: 11px;
+      border-radius: 9px;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .success {
+      display: block;
+      background: rgba(53,208,127,.1);
+      color: #35d07f;
+    }
+
+    .error {
+      display: block;
+      background: rgba(255,70,70,.1);
+      color: #ff7777;
+    }
+
+    .login {
+      text-align: center;
+      margin-top: 22px;
+      color: #8e95a7;
+      font-size: 14px;
+    }
+
+    .login a {
+      color: #a18aff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 18px;
+      color: #777e91;
+      font-size: 13px;
+      text-decoration: none;
+    }
   </style>
 </head>
 
 <body>
 
-<div class="box">
+  <div class="box">
 
-  <div class="logo">RM</div>
+    <div class="logo">RM</div>
 
-  <h1>Create Account</h1>
-  <p class="sub">Join RM Airdrop</p>
+    <h1>Create Account</h1>
 
-  <form id="signupForm">
+    <p class="subtitle">
+      Join RM Airdrop today
+    </p>
 
-    <label>Full Name</label>
-    <input id="name" type="text" required placeholder="Your name">
+    <form id="signupForm">
 
-    <label>Email</label>
-    <input id="email" type="email" required placeholder="you@example.com">
+      <label>Full Name</label>
+      <input
+        type="text"
+        id="fullName"
+        placeholder="Enter your name"
+        required
+      >
 
-    <label>Password</label>
-    <input id="password" type="password" minlength="6" required placeholder="Minimum 6 characters">
+      <label>Email Address</label>
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter your email"
+        required
+      >
 
-    <button id="btn" type="submit">Create Account</button>
+      <label>Password</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="Minimum 6 characters"
+        minlength="6"
+        required
+      >
 
-  </form>
+      <label>Confirm Password</label>
+      <input
+        type="password"
+        id="confirmPassword"
+        placeholder="Confirm your password"
+        minlength="6"
+        required
+      >
 
-  <div id="message"></div>
+      <button type="submit" id="signupBtn">
+        Create Account
+      </button>
 
-  <div class="login">
-    Already have an account?
-    <a href="login.html">Login</a>
+    </form>
+
+    <div id="message" class="message"></div>
+
+    <div class="login">
+      Already have an account?
+      <a href="login.html">Login</a>
+    </div>
+
+    <a class="back" href="index.html">
+      ← Back to RM Airdrop
+    </a>
+
   </div>
 
-</div>
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+
+    /*
+      IMPORTANT:
+      এখানে নিজের Supabase Project URL এবং
+      Publishable Key বসাবে।
+
+      Service Role / Secret Key এখানে কখনো ব্যবহার করবে না।
+    */
+
+    const SUPABASE_URL = "https://coqexpuczbrtfvrpxjuk.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_Kc0DnMmpsKOTZTr1idZkkQ_VbNP4x0x";
+
+    const supabaseClient =
+      supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+      );
 
 
-<script type="module">
-
-  import { createClient }
-  from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
-
-
-  /*
-    IMPORTANT:
-    Replace these two values with YOUR Supabase
-    Project URL and Publishable/Anon key.
-  */
-
-  const SUPABASE_URL = "https://coqexpuczbrtfvrpxjuk.supabase.co";
-  const SUPABASE_KEY = "sb_publishable_Kc0DnMmpsKOTZTr1idZkkQ_VbNP4x0x";
+    const form = document.getElementById("signupForm");
+    const button = document.getElementById("signupBtn");
+    const message = document.getElementById("message");
 
 
-  const supabase = createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-  );
-
-
-  const form = document.getElementById("signupForm");
-  const btn = document.getElementById("btn");
-  const message = document.getElementById("message");
-
-
-  form.addEventListener("submit", async (e) => {
-
-    e.preventDefault();
-
-    const name =
-      document.getElementById("name").value.trim();
-
-    const email =
-      document.getElementById("email").value.trim();
-
-    const password =
-      document.getElementById("password").value;
-
-
-    btn.disabled = true;
-    btn.textContent = "Creating...";
-
-    message.textContent = "";
-
-
-    const { data, error } =
-      await supabase.auth.signUp({
-
-        email: email,
-
-        password: password,
-
-        options: {
-          data: {
-            full_name: name
-          }
-        }
-
-      });
-
-
-    if (error) {
-
-      message.textContent =
-        "❌ " + error.message;
-
-      btn.disabled = false;
-      btn.textContent = "Create Account";
-
-      return;
+    function showMessage(text, type) {
+      message.textContent = text;
+      message.className = "message " + type;
     }
 
 
-    message.textContent =
-      "✅ Account created. Check your email if confirmation is required.";
+    form.addEventListener("submit", async function(e) {
 
-    form.reset();
+      e.preventDefault();
 
-    btn.disabled = false;
-    btn.textContent = "Create Account";
+      const fullName =
+        document.getElementById("fullName").value.trim();
 
-  });
+      const email =
+        document.getElementById("email").value.trim();
 
-</script>
+      const password =
+        document.getElementById("password").value;
+
+      const confirmPassword =
+        document.getElementById("confirmPassword").value;
+
+
+      if (password !== confirmPassword) {
+        showMessage(
+          "Passwords do not match.",
+          "error"
+        );
+        return;
+      }
+
+
+      if (password.length < 6) {
+        showMessage(
+          "Password must be at least 6 characters.",
+          "error"
+        );
+        return;
+      }
+
+
+      button.disabled = true;
+      button.textContent = "Creating account...";
+
+
+      try {
+
+        const { data, error } =
+          await supabaseClient.auth.signUp({
+
+            email: email,
+
+            password: password,
+
+            options: {
+              data: {
+                full_name: fullName
+              }
+            }
+
+          });
+
+
+        if (error) {
+          throw error;
+        }
+
+
+        showMessage(
+          "Account created successfully! Check your email if confirmation is required.",
+          "success"
+        );
+
+
+        form.reset();
+
+
+      } catch (error) {
+
+        showMessage(
+          error.message || "Signup failed.",
+          "error"
+        );
+
+      } finally {
+
+        button.disabled = false;
+        button.textContent = "Create Account";
+
+      }
+
+    });
+
+  </script>
 
 </body>
 </html>
