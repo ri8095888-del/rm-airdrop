@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>RM Airdrop — Sign Up</title>
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    body{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      font-family:Arial,sans-serif;
+      background:#07080d;
+      color:#fff;
+    }
+
+    .box{
+      width:100%;
+      max-width:420px;
+      padding:30px;
+      background:#0e1018;
+      border:1px solid #252938;
+      border-radius:20px;
+      box-shadow:0 20px 60px #0008;
+    }
+
+    .logo{
+      width:52px;
+      height:52px;
+      display:grid;
+      place-items:center;
+      margin:0 auto 18px;
+      border-radius:15px;
+      background:linear-gradient(135deg,#7c5cff,#a984ff);
+      font-weight:800;
+    }
+
+    h1{text-align:center;font-size:27px}
+    .sub{text-align:center;color:#8e95a7;margin:8px 0 25px;font-size:14px}
+
+    label{
+      display:block;
+      margin:15px 0 7px;
+      font-size:13px;
+      color:#b7bdcb;
+    }
+
+    input{
+      width:100%;
+      padding:14px;
+      border-radius:11px;
+      border:1px solid #292d3b;
+      background:#141722;
+      color:#fff;
+      outline:none;
+    }
+
+    input:focus{border-color:#7c5cff}
+
+    button{
+      width:100%;
+      margin-top:22px;
+      padding:14px;
+      border:0;
+      border-radius:11px;
+      background:#7c5cff;
+      color:white;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    button:disabled{opacity:.6}
+
+    #message{
+      margin-top:15px;
+      text-align:center;
+      font-size:13px;
+      color:#aeb4c3;
+    }
+
+    .login{
+      text-align:center;
+      margin-top:20px;
+      font-size:13px;
+      color:#8e95a7;
+    }
+
+    .login a{color:#a18aff}
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+
+  <div class="logo">RM</div>
+
+  <h1>Create Account</h1>
+  <p class="sub">Join RM Airdrop</p>
+
+  <form id="signupForm">
+
+    <label>Full Name</label>
+    <input id="name" type="text" required placeholder="Your name">
+
+    <label>Email</label>
+    <input id="email" type="email" required placeholder="you@example.com">
+
+    <label>Password</label>
+    <input id="password" type="password" minlength="6" required placeholder="Minimum 6 characters">
+
+    <button id="btn" type="submit">Create Account</button>
+
+  </form>
+
+  <div id="message"></div>
+
+  <div class="login">
+    Already have an account?
+    <a href="login.html">Login</a>
+  </div>
+
+</div>
+
+
+<script type="module">
+
+  import { createClient }
+  from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+
+  /*
+    IMPORTANT:
+    Replace these two values with YOUR Supabase
+    Project URL and Publishable/Anon key.
+  */
+
+  const SUPABASE_URL = "https://coqexpuczbrtfvrpxjuk.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_Kc0DnMmpsKOTZTr1idZkkQ_VbNP4x0x";
+
+
+  const supabase = createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+
+  const form = document.getElementById("signupForm");
+  const btn = document.getElementById("btn");
+  const message = document.getElementById("message");
+
+
+  form.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const name =
+      document.getElementById("name").value.trim();
+
+    const email =
+      document.getElementById("email").value.trim();
+
+    const password =
+      document.getElementById("password").value;
+
+
+    btn.disabled = true;
+    btn.textContent = "Creating...";
+
+    message.textContent = "";
+
+
+    const { data, error } =
+      await supabase.auth.signUp({
+
+        email: email,
+
+        password: password,
+
+        options: {
+          data: {
+            full_name: name
+          }
+        }
+
+      });
+
+
+    if (error) {
+
+      message.textContent =
+        "❌ " + error.message;
+
+      btn.disabled = false;
+      btn.textContent = "Create Account";
+
+      return;
+    }
+
+
+    message.textContent =
+      "✅ Account created. Check your email if confirmation is required.";
+
+    form.reset();
+
+    btn.disabled = false;
+    btn.textContent = "Create Account";
+
+  });
+
+</script>
+
+</body>
+</html>
