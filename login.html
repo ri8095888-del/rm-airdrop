@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — RM Airdrop</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#07080d;
+  color:#fff;
+  font-family:Arial,sans-serif;
+  padding:20px;
+}
+
+.card{
+  width:100%;
+  max-width:420px;
+  background:#0e1018;
+  border:1px solid #252936;
+  border-radius:22px;
+  padding:30px;
+  box-shadow:0 20px 70px rgba(0,0,0,.4);
+}
+
+.logo{
+  width:55px;
+  height:55px;
+  display:grid;
+  place-items:center;
+  border-radius:16px;
+  background:linear-gradient(135deg,#7c5cff,#aa8cff);
+  font-weight:900;
+  margin-bottom:20px;
+}
+
+h1{
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.sub{
+  color:#8e95a7;
+  font-size:14px;
+  margin-bottom:28px;
+}
+
+label{
+  display:block;
+  color:#b8bdca;
+  font-size:13px;
+  margin:16px 0 8px;
+}
+
+input{
+  width:100%;
+  padding:14px;
+  border-radius:11px;
+  border:1px solid #292d39;
+  background:#080a10;
+  color:#fff;
+  outline:none;
+}
+
+input:focus{
+  border-color:#7c5cff;
+}
+
+button{
+  width:100%;
+  padding:14px;
+  margin-top:23px;
+  border:0;
+  border-radius:11px;
+  background:#7c5cff;
+  color:#fff;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+button:disabled{
+  opacity:.6;
+}
+
+.message{
+  margin-top:15px;
+  font-size:13px;
+  color:#9ea5b5;
+  text-align:center;
+}
+
+.signup{
+  text-align:center;
+  margin-top:22px;
+  color:#8e95a7;
+  font-size:13px;
+}
+
+.signup a{
+  color:#a18aff;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <div class="logo">RM</div>
+
+  <h1>Welcome back</h1>
+
+  <p class="sub">
+    Login to your RM Airdrop account.
+  </p>
+
+  <form id="loginForm">
+
+    <label>Email</label>
+    <input
+      id="email"
+      type="email"
+      placeholder="you@example.com"
+      required
+    >
+
+    <label>Password</label>
+    <input
+      id="password"
+      type="password"
+      placeholder="Your password"
+      required
+    >
+
+    <button id="loginBtn" type="submit">
+      Login
+    </button>
+
+  </form>
+
+  <div class="message" id="message"></div>
+
+  <div class="signup">
+    Don't have an account?
+    <a href="signup.html">Create account</a>
+  </div>
+
+</div>
+
+<script>
+/*
+  Supabase connection will be added after
+  we create the signup page.
+*/
+document.getElementById("loginForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  document.getElementById("message").textContent =
+    "Authentication connection will be enabled next.";
+});
+</script>
+
+</body>
+</html>
